@@ -1,4 +1,4 @@
-package api
+package dto
 
 type ConventionalTypeDto struct {
 	Id   int64  `json:"id"`

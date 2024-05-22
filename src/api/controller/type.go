@@ -1,13 +1,14 @@
-package api
+package controller
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/pedroluis02/gin-restapi-golang-sample/src/api/dto"
 )
 
-func findAllTypes(c *gin.Context) {
-	var types = []ConventionalTypeDto{
+func FindAllTypes(c *gin.Context) {
+	var types = []dto.ConventionalTypeDto{
 		{Id: 1, Name: "feat"},
 		{Id: 2, Name: "fix"},
 		{Id: 3, Name: "refactor"},

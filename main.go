@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/pedroluis02/gin-restapi-golang-sample/src/api"
+	"github.com/pedroluis02/gin-restapi-golang-sample/src/api/router"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 		})
 	})
 
-	api.NewTypeRouter(r)
+	router.NewTypeRouter(r)
 
 	r.Run()
 }
