@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/pedroluis02/gin-restapi-golang-sample/src/api"
 )
 
 func main() {
@@ -17,6 +18,8 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	api.NewTypeRouter(r)
 
 	r.Run()
 }
