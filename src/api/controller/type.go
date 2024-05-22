@@ -7,7 +7,10 @@ import (
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/api/dto"
 )
 
-func FindAllTypes(c *gin.Context) {
+type ConventionalTypeController struct {
+}
+
+func (cc *ConventionalTypeController) FindAll(c *gin.Context) {
 	var types = []dto.ConventionalTypeDto{
 		{Id: 1, Name: "feat"},
 		{Id: 2, Name: "fix"},

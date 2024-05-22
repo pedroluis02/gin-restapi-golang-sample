@@ -6,6 +6,8 @@ import (
 )
 
 func NewTypeRouter(rg *gin.RouterGroup) {
+	controller := controller.ConventionalTypeController{}
+
 	router := rg.Group("/types")
-	router.GET("", controller.FindAllTypes)
+	router.GET("", controller.FindAll)
 }

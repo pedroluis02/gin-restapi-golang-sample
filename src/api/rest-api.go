@@ -17,7 +17,6 @@ func NewAndRun() {
 	})
 
 	groupV1 := server.Group("/api/v1")
-
 	router.NewTypeRouter(groupV1)
 
 	server.Run()
