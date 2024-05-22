@@ -5,8 +5,7 @@ import (
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/api/controller"
 )
 
-func NewTypeRouter(r *gin.Engine) {
-
-	router := r.Group("/types")
+func NewTypeRouter(rg *gin.RouterGroup) {
+	router := rg.Group("/types")
 	router.GET("", controller.FindAllTypes)
 }
