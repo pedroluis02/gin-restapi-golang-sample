@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/api/dto"
+	"github.com/pedroluis02/gin-restapi-golang-sample/src/common"
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/domain/model"
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/domain/repository"
 )
@@ -19,19 +20,11 @@ func NewTypeController(repository repository.ConventionalTypeRepository) *Conven
 
 func (cc *ConventionalTypeController) FindAll(c *gin.Context) {
 	types := cc.repository.FindAll()
-	dto := arrayMapFunc(types, cc.mapToDto)
+	dto := common.MapArrayWithFunc(types, cc.mapToDto)
 
 	c.JSON(http.StatusOK, dto)
 }
 
 func (cc *ConventionalTypeController) mapToDto(model model.ConventionalType) dto.ConventionalTypeDto {
 	return dto.ConventionalTypeDto{Id: model.Id, Name: model.Name}
-}
-
-func arrayMapFunc[T, V any](ts []T, fn func(T) V) []V {
-	result := make([]V, len(ts))
-	for i, t := range ts {
-		result[i] = fn(t)
-	}
-	return result
 }
