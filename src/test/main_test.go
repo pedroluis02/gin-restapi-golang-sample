@@ -6,12 +6,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/pedroluis02/gin-restapi-golang-sample/src/api"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGeneralRoutes(t *testing.T) {
-	server := api.NewServer(false)
+	server := NewServerTesting()
 
 	t.Run("Ping", func(t *testing.T) {
 		w := httptest.NewRecorder()

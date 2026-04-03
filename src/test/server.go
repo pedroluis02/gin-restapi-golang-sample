@@ -1,18 +1,15 @@
-package main
+package test
 
 import (
-	"log"
-
+	"github.com/gin-gonic/gin"
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/api"
 	"github.com/pedroluis02/gin-restapi-golang-sample/src/core"
 )
 
-func main() {
-	log.Println("GIN Restful API")
-
+func NewServerTesting() *gin.Engine {
 	config := core.ServerConfig{
-		Mode:    core.ServerDevMode,
-		ShowLog: true,
+		Mode:    core.ServerTestingMode,
+		ShowLog: false,
 	}
-	api.NewAndRun(config)
+	return api.NewServer(config)
 }
