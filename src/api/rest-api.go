@@ -10,10 +10,17 @@ import (
 )
 
 func NewAndRun() {
-	log.SetLevel(log.TraceLevel)
+	server := NewServer(true)
+	server.Run()
+}
 
+func NewServer(showLog bool) *gin.Engine {
 	server := gin.Default()
-	server.Use(logger.RequestLogger(true))
+
+	if showLog {
+		log.SetLevel(log.TraceLevel)
+		server.Use(logger.RequestLogger(true))
+	}
 
 	server.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
@@ -25,5 +32,5 @@ func NewAndRun() {
 	router.NewTypeRouter(groupV1)
 	router.NewGitmojiRouter(groupV1)
 
-	server.Run()
+	return server
 }
